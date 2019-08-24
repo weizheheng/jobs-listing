@@ -1,5 +1,4 @@
 import os
-import requests
 
 from flask import Flask, session, redirect, render_template, request, flash, jsonify, abort
 from flask_session import Session
@@ -19,7 +18,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Set up database
-engine = create_engine(os.getenv("DATABASE_URL"), pool_size=10, max_overflow=20)
+engine = create_engine(postgres://ypvuuadaexvgmf:4fcf02037d868398ac646f6d3cb05ca4b0ca1ccc4ff055b89fdc80fa5147d149@ec2-23-23-182-18.compute-1.amazonaws.com:5432/d2hg9oifn1sa61, pool_size=10, max_overflow=20)
 db = scoped_session(sessionmaker(bind=engine))
 
 
