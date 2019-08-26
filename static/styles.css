@@ -12,25 +12,67 @@ nav .navbar-brand{
     text-align:center;
 }
 
-.mainContainer {
-    display:flex;
-    justify-content:center;
-    flex-direction: column;
-    align-items:center;
-}
-
 .mainContainer .mainText {
     display:flex;
     justify-content:center;
     flex-direction: column;
 	margin-bottom:30px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.mainContainer .jobGridHeader {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.mainContainer .cardContainer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.mainContainer .card-body {
+    padding: 0px;
+    padding-left:1.25rem;
+}
+
+.mainContainer .card-body ul {
+    margin-bottom: 0.5rem;
+}
+
+.mainContainer .cardContainer .card-header,
+.mainContainer .cardContainer .card-title {
+    font-weight:500;
+    font-size:1rem;
+    margin-bottom: 0.5rem;
+}
+
+.mainContainer .formContainer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.mainContainer .jobGridHeader .recommendedJobs,
+.mainContainer .jobGridHeader .availableJobs {
+    font-size:25px;
+    margin:10px 0;
+    padding-bottom:10px;
+    border-bottom: 1px solid #e8e8e8;
+    text-align:center;
 }
 
 .mainContainer span {
     text-align:center;
-    font-size:30px;
-    font-weight:500;
-    color: rgba(17,17,17,0.6);
+    font-size:25px;
+    font-weight:400;
+    margin-top:10px;
+    margin-bottom:5px;
+    color: #212529;
 }
 
 .mainContainer img {
@@ -40,9 +82,32 @@ nav .navbar-brand{
     width: 60%;
 }
 
+.mainContainer .card {
+    width: 50%;
+    margin: 10px 10px;
+    font-size:15px;
+}
+
 .mainContainer .mainText form {
     text-align:center;
     margin-top:20px;
+}
+
+.mainContainer .addJobForm .form-row {
+    margin-bottom: 15px;
+}
+
+.mainContainer .addJobForm {
+    width: 500px;
+}
+
+.mainContainer .addJobForm input,
+.mainContainer .addJobForm textarea {
+    font-size:16px;
+}
+
+.mainContainer .addJobForm textarea {
+    height:150px;
 }
 
 .registerContainer {
@@ -74,6 +139,7 @@ nav .navbar-brand{
     border-bottom:1px solid #dedede;
 }
 
+.mainContainer .addJobForm input[type="submit"],
 .registerContainer .column form input[type="submit"] {
     cursor:pointer;
     background: #4285f4;
