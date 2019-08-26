@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                <span>{{message}}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="registerContainer">
+        <div class="column">
+            <div class="header">
+                <img src="../static/images/main-icon.png" title="logo" alt="site logo">
+                <h3>Login</h3>
+                <span>to continue to Jobs Listing site</span>
+            </div>
+
+            <div class="loginForm">
+                <form id="login" action="/login" method="post">
+                    <input autocomplete="off" name="username" placeholder="Username" type="text" required>
+                    <input autocomplete="off" name="password" placeholder="Password" type="password" required>
+                    <input type="submit" name="submitButton" value="LOGIN">
+                </form>
+            </div>
+            <a class="signInMessage" href="/register">Does not have an account? Register here.</a>
+        </div>
+    </div>
+{% endblock %}
