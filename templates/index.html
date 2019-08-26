@@ -7,14 +7,42 @@
 {% block main %}
     {% if session.user_id %}
         <div class="mainContainer">
-            <div class="mainText">
-                <span>This is a Job Listing website and you are logged in</span>
+            <div class="jobGridHeader">
+                <div class="availableJobs">
+                    Available Jobs
+                </div>
+            </div>
+            <div class="cardContainer">
+            {% for row in rows %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ row["company"] }}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title"><u>{{ row["title"] }}</u></div>
+                        <div class="card-title">Job Descriptions</div>
+                        {% set list1 = row["description"].split(";") %}
+                        {% for list in list1 %}
+                        <ul>
+                            <li>{{list}}</li>
+                        </ul>
+                        {% endfor %}
+                        <div class="card-title">Job Requirement</div>
+                        {% set list2 = row["requirement"].split(";") %}
+                        {% for list in list2 %}
+                        <ul>
+                            <li>{{list}}</li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
             </div>
         </div>
     {% else %}
         <div class="mainContainer">
             <div class="mainText">
-                <span>This is a Job Listing website for you to look for your dream job!</span>
+                <span>This is a Job Listing website for you to search for your dream job!</span>
                 <span>Log in to find out more!</span>
                 <form action="/login" method="GET">
                     <button class="btn btn-primary btn-lg" type="submit">Join us now!</button>

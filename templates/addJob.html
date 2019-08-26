@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Job
+{% endblock %}
+
+{% block main %}
+    <div class="mainContainer">
+        <div class="mainText">
+            <span>Fill in the form to add job to our website!</span>
+        </div>
+        <div class="formContainer">
+            <form class="addJobForm" action="/addJob" method="post">
+                <div class="form-row">
+                    <label>Company name</label>
+                    <input type="text" class="form-control" name="company" placeholder="Enter your company name..." required>
+                </div>
+                <div class="form-row">
+                    <label>Job's Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter the available position..." required>
+                </div>
+                <div class="form-row">
+                    <label>Job's Descriptions</label>
+                    <textarea class="form-control" name="description" placeholder="Tell the job seekers the job scope..." required></textarea>
+                    <small class="form-text text-muted">
+                        Please separate each description by ";"
+                    </small>
+                </div>
+                <div class="form-row">
+                    <label>Job's Requirements</label>
+                    <textarea class="form-control" name="requirement" placeholder="Tell them what are the requirements..." required></textarea>
+                    <small class="form-text text-muted">
+                        Please separate each requirement by ";"
+                    </small>
+                </div>
+                <div class="button">
+                    <input type="submit" name="submitButton" value="Add Job">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
