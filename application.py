@@ -21,6 +21,10 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
+    if session.get("user_id"):
+        rows = db.execute("SELECT * FROM jobs ORDER BY id DESC").fetchall()
+        print(rows[0]["company"])
+        return render_template("index.html", rows=rows)
     return render_template("index.html")
 
 @app.route("/login", methods= ["GET", "POST"])
@@ -30,7 +34,7 @@ def login():
         return render_template("login.html")
     else:
         row = db.execute("SELECT * FROM users WHERE username=:username", {"username": request.form.get("username")}).fetchone()
-
+        print(row["password"])
         # Check whether username exists in database
         if row == None:
             flash(u"Username does not exists.", "warning")
@@ -77,3 +81,21 @@ def logout():
     # Clear all the session
     session.clear()
     return redirect("/")
+
+@app.route("/addJob", methods=["GET","POST"])
+def addJob():
+    """ This route is used to add new job to the database """
+    if request.method == "GET":
+        return render_template("addJob.html")
+    else:
+        db.execute("INSERT INTO jobs (company, title, description, requirement) VALUES (:company, :title, :description, :requirement)", {"company":request.form.get("company"), "title":request.form.get("title"), "description": request.form.get("description"), "requirement":request.form.get("requirement")})
+        db.commit()
+        return redirect("/")
+
+@app.route("/recommended", methods=["GET","POST"])
+def recommended():
+    """ This route is used to show recommended jobs for users """
+    if request.method == "GET":
+        return render_template("recommended.html")
+    else:
+        return redirect("/")
