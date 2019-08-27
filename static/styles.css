@@ -2,10 +2,21 @@ body {
     background-color: #fafafa;
 }
 
+.footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
 nav .navbar-brand{
     display:flex;
     justify-content: center;
     align-items:center;
+}
+
+.form-inline {
+    margin-left: 100px;
 }
 
 .alert {
@@ -37,6 +48,10 @@ nav .navbar-brand{
 .mainContainer .card-body {
     padding: 0px;
     padding-left:1.25rem;
+}
+
+.mainContainer .card-header {
+    background: rgba(206,212,218,0.77)
 }
 
 .mainContainer .card-body ul {
