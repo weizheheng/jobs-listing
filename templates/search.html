@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                <span>{{message}}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="mainContainer">
+        <div class="jobGridHeader">
+            <div class="availableJobs">
+                Jobs Found
+            </div>
+        </div>
+        <div class="cardContainer">
+        {% for row in rows %}
+            <div class="card">
+                <div class="card-header">
+                    {{ row["company"] }}
+                </div>
+                <div class="card-body">
+                    <div class="card-title"><u>{{ row["title"] }}</u></div>
+                    <div class="card-title">Job Descriptions</div>
+                    {% set list1 = row["description"].split(";") %}
+                    {% for list in list1 %}
+                    <ul>
+                        <li>{{list}}</li>
+                    </ul>
+                    {% endfor %}
+                    <div class="card-title">Job Requirement</div>
+                    {% set list2 = row["requirement"].split(";") %}
+                    {% for list in list2 %}
+                    <ul>
+                        <li>{{list}}</li>
+                    </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

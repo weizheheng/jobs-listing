@@ -22,11 +22,15 @@
               </a>
               <div class="collapse navbar-collapse" id="navbar">
                   {% if session.user_id %}
-                    <ul class="navbar-nav mr-auto mt-2">
+                    <ul class="navbar-nav mt-2">
                         <li class="nav-item"><a class="nav-link" href="/">Job Board</a></li>
                         <li class="nav-item"><a class="nav-link" href="/recommended">Recommended Jobs</a></li>
                         <li class="nav-item"><a class="nav-link" href="/addJob">Employer</a></li>
                     </ul>
+                  <form class="form-inline" action="/search" method="get">
+                      <input class="form-control" type="Search" name="search" placeholder="Search job's title..." aria-label="Search" autocomplete="off">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
                     <ul class="navbar-nav ml-auto mt-2">
                         <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
                     </ul>
@@ -41,4 +45,7 @@
 
         {% block main %} {% endblock %}
     </body>
+    <footer>
+        {% block footer %} {% endblock %}
+    </footer>
 </html>

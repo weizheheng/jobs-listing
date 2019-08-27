@@ -13,24 +13,24 @@
             <form class="addJobForm" action="/addJob" method="post">
                 <div class="form-row">
                     <label>Company name</label>
-                    <input type="text" class="form-control" name="company" placeholder="Enter your company name..." required>
+                    <input type="text" class="form-control" name="company" placeholder="Enter your company name..." autocomplete="off" required>
                 </div>
                 <div class="form-row">
                     <label>Job's Title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter the available position..." required>
+                    <input type="text" class="form-control" name="title" placeholder="Enter the available position..." autocomplete="off" required>
                 </div>
                 <div class="form-row">
                     <label>Job's Descriptions</label>
                     <textarea class="form-control" name="description" placeholder="Tell the job seekers the job scope..." required></textarea>
                     <small class="form-text text-muted">
-                        Please separate each description by ";"
+                        Please separate each description by ";" not including the last one.
                     </small>
                 </div>
                 <div class="form-row">
                     <label>Job's Requirements</label>
                     <textarea class="form-control" name="requirement" placeholder="Tell them what are the requirements..." required></textarea>
                     <small class="form-text text-muted">
-                        Please separate each requirement by ";"
+                        Please separate each requirement by ";" not including the last one.
                     </small>
                 </div>
                 <div class="button">
