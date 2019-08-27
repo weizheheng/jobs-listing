@@ -23,7 +23,6 @@ db = scoped_session(sessionmaker(bind=engine))
 def index():
     if session.get("user_id"):
         rows = db.execute("SELECT * FROM jobs ORDER BY id DESC").fetchall()
-        print(rows[0]["company"])
         return render_template("index.html", rows=rows)
     return render_template("index.html")
 
@@ -99,3 +98,19 @@ def recommended():
         return render_template("recommended.html")
     else:
         return redirect("/")
+
+@app.route("/search", methods=["GET"])
+def search():
+    """ This route handle the job search """
+    if request.method == "GET":
+        title = '%'
+        title += request.args.get("search")
+        title += '%'
+        rows = db.execute("SELECT * FROM jobs WHERE LOWER(title) LIKE LOWER(:title) ORDER BY id DESC", 
+                            {"title": title}).fetchall()
+        print(len(rows))
+        if len(rows) == 0:
+            flash(u"There is no job with this title", "warning")
+            return render_template("search.html", rows=rows)
+
+        return render_template("search.html", rows=rows)
