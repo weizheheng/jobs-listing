@@ -24,3 +24,4 @@ This application is deployed on heroku which can be access through this [link](h
 14. test 10
 15. test git hf release
 16. Doing some hotfix
+17. New hotfix
