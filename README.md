@@ -20,3 +20,4 @@ This application is deployed on heroku which can be access through this [link](h
 10. test 7
 11. test 8
 12. test 9
+13. release fix
