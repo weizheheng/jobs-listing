@@ -25,3 +25,5 @@ This application is deployed on heroku which can be access through this [link](h
 15. test git hf release
 16. Doing some hotfix
 17. New hotfix
+18. test 12
+19. Release 1.0.8 fix
